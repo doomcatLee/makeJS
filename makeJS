@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+echo "Name of your directory:";
+read proj_name;
+cd ..;
+mkdir $proj_name;
+cd $proj_name;
+
+touch gulpfile.js;
+touch index.html;
+mkdir js;
+
+npm init;
+
+echo "Installing node packages..."
+npm install gulp --save-dev;
+npm install browserify --save-dev;
+npm install vinyl-source-stream --save-dev;
+npm install gulp-concat --save-dev;
+npm install gulp-uglify --save-dev;
+npm install gulp-util --save-dev;
+npm install del;
+npm install jshint --save-dev;
+npm install gulp-jshint --save-dev;
+
+echo "gulp, browserify, vinyl-source-stream, gulp-concat, gulp-uglify, gulp-util, del, jshint INSTALLED";
+
+npm install bower -g;
+bower init;
+
+echo "Installing Bower packages..."
+bower install jQuery --save;
+bower install bootstrap --save;
+bower install bower-files --save-dev;
+bower install browser-sync --save-dev;
+
+echo "jQuery, bootstrap, bower-files, browser-sync INSTALLED";
