@@ -22,6 +22,8 @@ npm install gulp-util --save-dev;
 npm install del;
 npm install jshint --save-dev;
 npm install gulp-jshint --save-dev;
+npm install browser-sync --save-dev;
+npm install bower-files --save-dev;
 
 echo "gulp, browserify, vinyl-source-stream, gulp-concat, gulp-uglify, gulp-util, del, jshint INSTALLED";
 
