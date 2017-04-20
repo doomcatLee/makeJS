@@ -37,3 +37,23 @@ bower install bower-files --save-dev;
 bower install browser-sync --save-dev;
 
 echo "jQuery, bootstrap, bower-files, browser-sync INSTALLED";
+
+echo "Installing prezto...";
+
+zsh;
+git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto";
+setopt EXTENDED_GLOB
+for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+done;
+chsh -s /bin/zsh;
+
+echo "Installing Atom packages...";
+apm install file-icons;
+apm install minimap;
+apm install minimap-highlight-selected;
+apm install minimap-cursorline;
+apm install minimap-linter;
+
+
+printf "\"*\":\n  editor:\n    fontSize: 18\n    showIndentGuide: true\n    showInvisibles: true\n    softWrap: true\n  \"exception-reporting\":\n      linter:\n    errorPanelHeight: 663\n  welcome:\n    showOnStartup: false" >! ~/.atom/config.cson
