@@ -10,6 +10,17 @@ touch gulpfile.js;
 touch index.html;
 mkdir js;
 
+echo "Installing Atom packages...";
+apm install file-icons;
+apm install minimap;
+apm install minimap-highlight-selected;
+apm install minimap-cursorline;
+apm install minimap-linter;
+apm install terminal-plus;
+
+
+printf "\"*\":\n  editor:\n    fontSize: 18\n    showIndentGuide: true\n    showInvisibles: true\n    softWrap: true\n  \"exception-reporting\":\n      linter:\n    errorPanelHeight: 663\n  welcome:\n    showOnStartup: false" >! ~/.atom/config.cson
+
 npm init;
 
 echo "Installing node packages..."
@@ -47,13 +58,3 @@ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
   ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
 done;
 chsh -s /bin/zsh;
-
-echo "Installing Atom packages...";
-apm install file-icons;
-apm install minimap;
-apm install minimap-highlight-selected;
-apm install minimap-cursorline;
-apm install minimap-linter;
-
-
-printf "\"*\":\n  editor:\n    fontSize: 18\n    showIndentGuide: true\n    showInvisibles: true\n    softWrap: true\n  \"exception-reporting\":\n      linter:\n    errorPanelHeight: 663\n  welcome:\n    showOnStartup: false" >! ~/.atom/config.cson
